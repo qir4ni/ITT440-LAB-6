@@ -6,9 +6,21 @@ import math
 from multiprocessing import Process
 
 
-ok_message = 'HTTP/1.0 200 OK\n\n'
-nok_message = 'HTTP/1.0 404 NotFound\n\n'
-
+print(r"""
+-----------------------------------------
+ __________
+| ________ |    Oleh Awis Qirani (qir4ni)
+||12345678||	Disember 2020
+|----------|     _____      _            _       _
+|[M|#|C][-]|    / ____|    | |          | |     | |
+|[7|8|9][+]|   | |     __ _| | ___ _   _| | __ _| |_ ___  _ __
+|[4|5|6][x]|   | |    / _` | |/ __| | | | |/ _` | __/ _ \| '__|
+|[1|2|3][%]|   | |___| (_| | | (__| |_| | | (_| | || (_) | |
+|[.|O|:][=]|    \_____\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|
+|----------|
+	     Server Version
+-----------------------------------------
+               """)
 
 def calcLog(x, base):
 	print(f"[+] Calculating logarithm for {x} with base {base}")
@@ -54,7 +66,10 @@ def process_start(s_sock):
 		data = s_sock.recv(2048)
 		#print(data)
 		data = data.decode('utf-8')
-		option, value1, value2 = data.split(" ", 3)
+		try:
+			option, value1, value2 = data.split(" ", 3)
+		except:
+			print("[+] Unable to calculate, client disconnected")
 		#print(option, value1, value2)
 		#data = data.decode('utf-8')
 		#print(data)
