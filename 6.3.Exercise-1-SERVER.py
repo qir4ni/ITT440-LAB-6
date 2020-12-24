@@ -2,11 +2,21 @@ import socket
 import sys
 import time
 import errno
+import math
 from multiprocessing import Process
 
 
 ok_message = 'HTTP/1.0 200 OK\n\n'
 nok_message = 'HTTP/1.0 404 NotFound\n\n'
+
+
+def calcLog(x, base):
+	if(str(base) == None or str(base) == " ")
+		answer = math.log(x)
+	else
+		answer = math.log(x, base)
+
+	return answer
 
 
 def process_start(s_sock):
@@ -23,7 +33,14 @@ def process_start(s_sock):
 			break
 		#if(data == 'a'):
 		#	print("Hello World")
-		s_sock.sendall(str.encode(ok_message))
+
+		if(option == log):
+			answer = calcLog(value1, value2)
+
+		message = "The answer is  %s." % str(answer)
+		s_sock.sendall(str.encode(message))
+
+		#s_sock.sendall(str.encode(ok_message))
 	s_sock.close()
 
 if __name__ == '__main__':
