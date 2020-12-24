@@ -34,7 +34,7 @@ def process_start(s_sock):
 		#if(data == 'a'):
 		#	print("Hello World")
 
-		if(option == log):
+		if(option == 'log'):
 			answer = calcLog(value1, value2)
 
 		message = "The answer is  %s." % str(answer)
