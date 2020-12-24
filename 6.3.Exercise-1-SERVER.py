@@ -14,6 +14,9 @@ def process_start(s_sock):
 	while True:
 		data = s_sock.recv(2048)
 		print(data)
+		data = data.decode('utf-8')
+		option, value1, value2 = data.split(" ", 3)
+		print(option, value1, value2)
 		#data = data.decode('utf-8')
 		#print(data)
 		if not data:
