@@ -21,7 +21,7 @@ while True:
 		option = input('Enter type of operation (log | sqrt | exp): ')
 		if(option == 'log'):
 			value1 = input("Enter first value: ")
-			value2 - input("Enter second value for base: ")
+			value2 = input("Enter second value for base: ")
 			status = 1
 		elif(option == 'sqrt'):
 			value1 = input("Enter the value: ")
@@ -29,7 +29,7 @@ while True:
 			status = 1
 		elif(option == 'exp'):
 			value1 = input("Enter the value: ")
-			value2 == '0'
+			value2 = '0'
 			status = 1
 		else:
 			print("Invalid operation, please re-enter..")
