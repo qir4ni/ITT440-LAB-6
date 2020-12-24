@@ -66,11 +66,12 @@ def process_start(s_sock):
 		if(option == 'log'):
 			answer = calcLog(value1, value2)
 		elif(option == 'sqrt'):
-			answer = calcSqrt(x)
+			answer = calcSqrt(value1)
 		elif(option == 'exp'):
-			answer = calcExp(x)
+			answer = calcExp(value1)
 
 		message = "[+] The answer is  %s." % str(answer)
+		print("[+] Completed\n------------------------------------\n")
 		s_sock.sendall(str.encode(message))
 
 		#s_sock.sendall(str.encode(ok_message))
