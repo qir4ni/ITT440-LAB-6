@@ -69,7 +69,7 @@ def process_start(s_sock):
 		try:
 			option, value1, value2 = data.split(" ", 3)
 		except:
-			print("[+] Unable to calculate, client disconnected")
+			print("[+] Unable to calculate, client disconnected\n")
 		#print(option, value1, value2)
 		#data = data.decode('utf-8')
 		#print(data)
