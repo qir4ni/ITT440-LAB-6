@@ -20,7 +20,7 @@ def calcLog(x, base):
 		else:
 			answer = math.log(x, base)
 	except:
-		answer = "Error, cannot calculate log. Please retry again.."
+		answer = "is unable to be calculate. Please retry again.."
 
 	return answer
 
