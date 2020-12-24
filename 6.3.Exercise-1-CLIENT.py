@@ -16,7 +16,7 @@ print(Response)
 
 while True:
 
-	statu = 0
+	status = 0
 	while(status == 0):
 		option = input('Enter type of operation (log | sqrt | exp): ')
 		if(option == 'log'):
