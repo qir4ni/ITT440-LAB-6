@@ -9,7 +9,7 @@ ok_message = 'HTTP/1.0 200 OK\n\n'
 nok_message = 'HTTP/1.0 404 NotFound\n\n'
 
 
-def process_starts(s_sock):
+def process_start(s_sock):
 	s_sock.send(str.encode('Welcome to the Server\n'))
 	while True:
 		data = s_sock.recv(2048)
