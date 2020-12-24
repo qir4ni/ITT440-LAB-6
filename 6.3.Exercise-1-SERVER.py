@@ -14,11 +14,13 @@ def calcLog(x, base):
 
 	x = int(x)
 	base = int(base)
-
-	if(str(base) == None or str(base) == " "):
-		answer = math.log(x)
-	else:
-		answer = math.log(x, base)
+	try:
+		if(str(base) == None or str(base) == " "):
+			answer = math.log(x)
+		else:
+			answer = math.log(x, base)
+	except:
+		answer = "Error, cannot calculate log. Please retry again.."
 
 	return answer
 
