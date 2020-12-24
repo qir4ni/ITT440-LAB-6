@@ -25,11 +25,11 @@ print(r"""
 def calcLog(x, base):
 	print(f"[+] Calculating logarithm for {x} with base {base}")
 	x = int(x)
-	base = int(base)
 	try:
-		if(str(base) == None or str(base) == " "):
+		if(str(base) == None or str(base) == " ")
 			answer = math.log(x)
 		else:
+			base = int(base)
 			answer = math.log(x, base)
 	except:
 		answer = "unable to be calculated. Please retry again.."
