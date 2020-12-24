@@ -11,7 +11,7 @@ nok_message = 'HTTP/1.0 404 NotFound\n\n'
 
 
 def calcLog(x, base):
-
+	print(f"[+] Calculating logarithm for {x} with base {base}")
 	x = int(x)
 	base = int(base)
 	try:
@@ -20,19 +20,42 @@ def calcLog(x, base):
 		else:
 			answer = math.log(x, base)
 	except:
-		answer = "unable to be calculate. Please retry again.."
+		answer = "unable to be calculated. Please retry again.."
+
+	return answer
+
+def calcSqrt(x):
+	print(f"[+] Calculating square root of {x}")
+	x = int(x)
+	if(x >= 0):
+		try:
+			answer = math.sqrt(x)
+		except:
+			answer = "unable to be calculated. Please retry again.."
+	else:
+		answer = "unable to be calculated because it is a negative value."
+
+	return answer
+
+def calcExp(x):
+	print(f"[+] Calculating exponential of {x}")
+	x = float(x)
+	try:
+		answer = math.exp(x)
+	except:
+		answer = "unable to be calculated. Please retry again.."
 
 	return answer
 
 
 def process_start(s_sock):
-	s_sock.send(str.encode('Welcome to the Server\n'))
+	s_sock.send(str.encode('[+] Welcome to the Server\n'))
 	while True:
 		data = s_sock.recv(2048)
-		print(data)
+		#print(data)
 		data = data.decode('utf-8')
 		option, value1, value2 = data.split(" ", 3)
-		print(option, value1, value2)
+		#print(option, value1, value2)
 		#data = data.decode('utf-8')
 		#print(data)
 		if not data:
@@ -42,8 +65,12 @@ def process_start(s_sock):
 
 		if(option == 'log'):
 			answer = calcLog(value1, value2)
+		elif(option == 'sqrt'):
+			answer = calcSqrt(x)
+		elif(option == 'exp'):
+			answer = calcExp(x)
 
-		message = "The answer is  %s." % str(answer)
+		message = "[+] The answer is  %s." % str(answer)
 		s_sock.sendall(str.encode(message))
 
 		#s_sock.sendall(str.encode(ok_message))
@@ -52,7 +79,7 @@ def process_start(s_sock):
 if __name__ == '__main__':
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	s.bind(("", 8888))
-	print("listening...")
+	print("[+] Listening for input from clients...")
 	s.listen(3)
 	try:
 		while True:
@@ -62,10 +89,10 @@ if __name__ == '__main__':
 				p.start()
 
 			except socket.error:
-				print('got a socket error')
+				print('[+] Got a socket error')
 
 	except Exception as e:
-		print('an exception occured!')
+		print('[+] An exception occured!')
 		print(e) 
 		sys.exit(1)
 
