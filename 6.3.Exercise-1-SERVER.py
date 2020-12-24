@@ -13,7 +13,7 @@ nok_message = 'HTTP/1.0 404 NotFound\n\n'
 def calcLog(x, base):
 	if(str(base) == None or str(base) == " "):
 		answer = math.log(x)
-	else
+	else:
 		answer = math.log(x, base)
 
 	return answer
