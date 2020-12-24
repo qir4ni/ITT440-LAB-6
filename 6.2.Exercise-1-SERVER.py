@@ -28,7 +28,7 @@ if __name__ == '__main__':
 		while True:
 			try:
 				s_sock, s_addr = s.accept()
-				p = Process(target = process_start, args = (s_sock))
+				p = Process(target = process_start, args = (s_sock,))
 				p.start()
 
 			except socket.error:
