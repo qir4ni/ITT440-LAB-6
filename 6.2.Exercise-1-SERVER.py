@@ -31,7 +31,7 @@ if __name__ == '__main__':
 				p = Process(target = process_start, args = (s_sock))
 				p.start()
 
-			except socket_error:
+			except socket.error:
 				print('got a socket error')
 
 	except Exception as e:
