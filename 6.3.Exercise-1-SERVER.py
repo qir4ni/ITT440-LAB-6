@@ -22,15 +22,11 @@ print(r"""
 -----------------------------------------
                """)
 
-def calcLog(x, base):
-	print(f"[+] Calculating logarithm for {x} with base {base}")
+def calcLog(x):
+	print(f"[+] Calculating log({x})")
 	x = int(x)
 	try:
-		if(str(base) == None or str(base) == " "):
-			answer = math.log(x)
-		else:
-			base = int(base)
-			answer = math.log(x, base)
+		answer = math.log(x)
 	except:
 		answer = "unable to be calculated. Please retry again.."
 
@@ -67,7 +63,7 @@ def process_start(s_sock):
 		#print(data)
 		data = data.decode('utf-8')
 		try:
-			option, value1, value2 = data.split(" ", 3)
+			option, value1 = data.split(" ", 2)
 		except:
 			print("[+] Unable to calculate, client disconnected\n")
 		#print(option, value1, value2)
@@ -79,7 +75,7 @@ def process_start(s_sock):
 		#	print("Hello World")
 
 		if(option == 'log'):
-			answer = calcLog(value1, value2)
+			answer = calcLog(value1)
 		elif(option == 'sqrt'):
 			answer = calcSqrt(value1)
 		elif(option == 'exp'):
