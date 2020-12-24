@@ -36,7 +36,7 @@ while True:
 			status = 0
 
 
-	Input = option + value1 + value2
+	Input = option + " " +  value1 + " " + value2
 	ClientSocket.send(str.encode(Input))
 	Response = ClientSocket.recv(1024)
 	print(Response.decode('utf-8'))
